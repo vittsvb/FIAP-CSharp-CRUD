@@ -1,0 +1,42 @@
+﻿@model ExemploCRUD.Models.Funcionario
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <td>@Html.LabelFor(model => model.Codigo)</td>
+            <td>@Html.TextBoxFor(model => model.Codigo, "")</td>
+            <td>@Html.ValidationMessageFor(model => model.Codigo, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Nome)</td>
+            <td>@Html.TextBoxFor(model => model.Nome, "")</td>
+            <td>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Endereco)</td>
+            <td>@Html.TextBoxFor(model => model.Endereco, "")</td>
+            <td>@Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Genero)</td>
+            <td>
+                @Html.RadioButtonFor(model => model.Genero, "M", new { @checked = true }) Masculino | 
+                @Html.RadioButtonFor(model => model.Genero, "F") Feminino
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:right"><input type="submit" value="Cadastrar"/></td>
+        </tr>
+    </table>
+    <br/>
+    @Html.ActionLink("Voltar para Index", "Index")
+}
+
